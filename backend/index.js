@@ -1,7 +1,5 @@
 const express = require("express");
 const morgan = require("morgan");
-const cors = require("cors");
-
 const PORT = process.env.PORT || 3001;
 const app = express();
 
@@ -18,7 +16,6 @@ const morganConf = morgan((tokens, req, res) =>
   ].join(" "),
 );
 
-app.use(cors());
 app.use(express.static("dist"));
 app.use(express.json());
 app.use(morganConf);
